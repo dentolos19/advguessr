@@ -1,4 +1,4 @@
- # AdvGuessR
+ # AdvGuessR (WIP)
 
 An advanced text-based guessing game! Made with Rust.
 
@@ -16,9 +16,8 @@ AdvGuessR.
 
 - [x] Includes small minigames!
   - [x] Guess The Number
-  - [ ] Hangman
   - [ ] Number Positions
-- [ ] Includes scoreboards!
+- [ ] Has profile and scoring system!
 - ...more to come!
 
 ## 📜 License

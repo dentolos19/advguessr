@@ -1,6 +1,7 @@
+use crate::utils::terminal::*;
+
 pub fn start() {
-    println!("Number Positions!");
-    loop {
-        // TODO: Implement the game
-    }
+    clear_screen();
+    println!("Number Positions");
+    pause_execution();
 }

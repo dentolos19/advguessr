@@ -1,26 +1,26 @@
-use crate::utils::randomization::*;
 use crate::utils::terminal::*;
+use rand::*;
 
 pub fn start() {
-    let menu = MenuData {
-        title: "Guess The Number".to_string(),
+    let menu = Menu {
+        title: String::from("Guess The Number"),
         options: vec![
-            "Easy Mode (0 to 100)".to_string(),
-            "Hard Mode (0 to 1000)".to_string(),
-            "Exit".to_string(),
+            String::from("Easy Mode"),
+            String::from("Hard Mode"),
+            String::from("Back"),
         ],
     };
     match menu.display() {
-        1 => game(0, 100),
-        2 => game(0, 1000),
+        0 => game(0, 100),
+        1 => game(0, 500),
         _ => (),
     }
 }
 
-fn game(min: usize, max: usize) {
-    let target_number = generate_random_number(min, max) as i32;
-    let mut guess_number = -1;
-    let mut attempts = 0;
+pub fn game(min: i32, max: i32) {
+    let target_number: i32 = rand::thread_rng().gen_range(min..(max + 1));
+    let mut guess_number: i32 = -1;
+    let mut attempts: i32 = 0;
     loop {
         clear_screen();
         println!("Guess The Number");
@@ -29,22 +29,20 @@ fn game(min: usize, max: usize) {
         println!("Attempts: {}", attempts);
         println!();
         if guess_number < 0 {
-            // Do nothing
         } else if guess_number == target_number {
             println!("Congratulations! You guessed the number!");
-            println!("Attempts: {}", attempts);
-            println!();
-            pause_terminal();
+            println!("The hidden number was: {}", target_number);
+            println!("Your number of attempts: {}", attempts);
+            pause_execution();
             break;
         } else if guess_number < target_number {
-            println!("{} The number is higher.", guess_number);
+            println!("The number is greater than {}!", guess_number);
             println!();
         } else {
-            println!("{} The number is lower.", guess_number);
+            println!("The number is less than {}!", guess_number);
             println!();
         }
-
-        guess_number = get_number_input(">");
+        guess_number = get_number_input("Guess >");
         attempts += 1;
     }
 }
