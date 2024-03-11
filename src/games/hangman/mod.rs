@@ -1,5 +1,5 @@
 pub fn start() {
-    println!("Number Positions!");
+    println!("Hangman!");
     loop {
         // TODO: Implement the game
     }

@@ -1,6 +1,6 @@
  # AdvGuessR
 
-An advanced text-based guessing games with scoreboards! Made with Rust.
+An advanced text-based guessing game! Made with Rust.
 
 **What is my rationale of making this project?** I want to learn Rust.
 
@@ -11,6 +11,15 @@ AdvGuessR.
 - `Adv`: Represents *Advanced*.
 - `Guess`/`GuessR`: Represents, well basically, *guessing* or *guesser*. Inspired by [GeoGuessr](https://geoguessr.com)
 - `R`: Represents *Rust*.
+
+## ⚙️ Features
+
+- [x] Includes small minigames!
+  - [x] Guess The Number
+  - [ ] Hangman
+  - [ ] Number Positions
+- [ ] Includes scoreboards!
+- ...more to come!
 
 ## 📜 License
 

@@ -59,7 +59,7 @@ impl MenuData {
     }
 }
 
-fn clear_screen() {
+pub fn clear_screen() {
     if cfg!(windows) {
         process::Command::new("cmd")
             .args(&["/c", "cls"])
@@ -70,19 +70,33 @@ fn clear_screen() {
     }
 }
 
-fn print_flush(text: &str) {
+pub fn pause_terminal() {
+    loop {
+        match read().unwrap() {
+            Event::Key(KeyEvent {
+                code: KeyCode::Enter,
+                modifiers: KeyModifiers::NONE,
+                kind: KeyEventKind::Press,
+                state: KeyEventState::NONE,
+            }) => break,
+            _ => (),
+        }
+    }
+}
+
+pub fn print_flush(text: &str) {
     print!("{}", text);
     std::io::stdout().flush().unwrap(); // Refer to https://stackoverflow.com/a/67185950
 }
 
-fn get_input(prompt: &str) -> String {
+pub fn get_input(prompt: &str) -> String {
     print_flush(format!("{} ", prompt).as_str());
     let mut input: String = String::new();
     std::io::stdin().read_line(&mut input).unwrap();
     return input.trim().to_string();
 }
 
-fn get_number_input(prompt: &str) -> i32 {
+pub fn get_number_input(prompt: &str) -> i32 {
     let input: String = get_input(prompt);
     match input.parse::<i32>() {
         Ok(number) => number,
