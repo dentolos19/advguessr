@@ -22,4 +22,4 @@ AdvGuessR.
 
 ## 📜 License
 
-This project is not distributed under any license.
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
