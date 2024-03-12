@@ -1,6 +1,6 @@
 use core::time;
 use crossterm::*;
-use std::io::*;
+use std::{io::*, process};
 
 pub struct Menu {
     pub title: String,
@@ -66,11 +66,13 @@ fn detect_key() -> Result<event::KeyCode> {
 }
 
 pub fn clear_screen() {
-    // idk what the fuck is going on, but it works
     if cfg!(windows) {
-        print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+        process::Command::new("cmd")
+            .args(&["/c", "cls"])
+            .status()
+            .unwrap();
     } else {
-        print!("{esc}c", esc = 27 as char);
+        process::Command::new("clear").status().unwrap();
     }
 }
 

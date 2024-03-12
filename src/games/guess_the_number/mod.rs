@@ -12,7 +12,7 @@ pub fn start() {
     };
     match menu.display() {
         0 => game(0, 100),
-        1 => game(0, 500),
+        1 => game(0, 2000),
         _ => (),
     }
 }
