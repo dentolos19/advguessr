@@ -3,8 +3,8 @@ use crossterm::*;
 use std::{io::*, process};
 
 pub struct Menu {
-    pub title: String,
-    pub options: Vec<String>,
+    pub title: &'static str,
+    pub options: Vec<&'static str>,
 }
 
 impl Menu {

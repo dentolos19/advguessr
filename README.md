@@ -16,7 +16,9 @@ AdvGuessR.
 
 - [x] Includes small minigames!
   - [x] Guess The Number
-  - [ ] Number Positions
+  - [x] Number Positions
+  - [ ] Word Matcher (wordle-like game)
+  - [ ] Word Guesser (stickman-like game)
 - [ ] Has profile and scoring system!
 - ...more to come!
 

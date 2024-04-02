@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 mod games;
 mod utils;
 
@@ -8,13 +6,8 @@ use utils::terminal::*;
 
 fn main() {
     let menu = Menu {
-        title: String::from("AdvGuessR"),
-        options: vec![
-            String::from("Games"),
-            String::from("Scoreboard"),
-            String::from("Profile"),
-            String::from("Exit"),
-        ],
+        title: "AdvGuessR",
+        options: vec!["Games", "Scoreboard (TODO)", "Profile (TODO)", "Exit"],
     };
     loop {
         match menu.display() {
@@ -29,16 +22,19 @@ fn main() {
 
 fn games() {
     let menu = Menu {
-        title: String::from("Games"),
+        title: "Games",
         options: vec![
-            String::from("Guess The Number"),
-            String::from("Number Positions"),
-            String::from("Back"),
+            "Guess The Number",
+            "Number Positions",
+            "Word Matcher",
+            "Word Guesser",
         ],
     };
     match menu.display() {
         0 => guess_the_number::start(),
         1 => number_positions::start(),
+        2 => todo!(),
+        3 => todo!(),
         _ => (),
     }
 }
