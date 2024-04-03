@@ -1,6 +1,9 @@
- # AdvGuessR (WIP)
+<h1>
+    <img src="public/icon.png" alt="Icon" height="30">
+    <span>AdvGuessR (WIP)</span>
+</h1>
 
-An advanced text-based guessing game! Made with Rust.
+An advanced text-based guessing game made with Rust!
 
 **What is my rationale of making this project?** I want to learn Rust.
 
@@ -21,6 +24,10 @@ AdvGuessR.
   - [ ] Word Guesser (stickman-like game)
 - [ ] Has profile and scoring system!
 - ...more to come!
+
+## 💖 Credits
+
+- Icon by [Freepik](https://flaticon.com/free-icon/puzzle_2200575)
 
 ## 📜 License
 
