@@ -2,10 +2,7 @@ use crate::utils::terminal::*;
 use rand::*;
 
 pub fn start() {
-    let menu = Menu {
-        title: "Guess The Number",
-        options: vec!["Easy Mode", "Hard Mode", "Back"],
-    };
+    let menu = Menu::new("Guess The Number", vec!["Easy Mode", "Hard Mode", "Back"]);
     match menu.display() {
         0 => game(0, 100),
         1 => game(0, 2000),

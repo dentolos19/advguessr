@@ -3,10 +3,7 @@ use rand::Rng;
 use crate::utils::terminal::*;
 
 pub fn start() {
-    let menu = Menu {
-        title: "Number Positions",
-        options: vec!["Easy Mode", "Hard Mode", "Back"],
-    };
+    let menu = Menu::new("Number Positions", vec!["Easy Mode", "Hard Mode", "Back"]);
     match menu.display() {
         0 => game(4),
         1 => game(8),

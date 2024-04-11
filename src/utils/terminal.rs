@@ -5,14 +5,27 @@ use std::{io::*, process};
 pub struct Menu {
     pub title: &'static str,
     pub options: Vec<&'static str>,
+    pub description: Option<String>,
 }
 
 impl Menu {
+    pub fn new(title: &'static str, options: Vec<&'static str>) -> Self {
+        Menu {
+            title,
+            options,
+            description: None,
+        }
+    }
+
     pub fn display(&self) -> isize {
         let mut current_selection: usize = 0;
         loop {
             clear_screen();
             println!("{}", self.title);
+            if self.description.is_some() {
+                println!("");
+                println!("{}", self.description.as_ref().unwrap());
+            }
             println!();
             for (index, option) in self.options.iter().enumerate() {
                 if index == current_selection {

@@ -3,17 +3,28 @@ use std::{fs, path};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
-pub struct User {
+pub struct Player {
     pub name: String,
-    pub password: String,
     pub score: i32,
 }
 
-pub fn load_users(path: &path::Path) -> Vec<User> {
+impl Player {
+    pub fn save(&self, path: &path::Path) {
+        let json = serde_json::to_string(&self).unwrap();
+        fs::write(path, json).unwrap();
+    }
+}
+
+pub fn load_player(path: &path::Path) -> Option<Player> {
     if !path.exists() {
-        std::fs::write(path, "[]").unwrap();
+        // let player = Player {
+        //     name: String::new(),
+        //     score: 0,
+        // };
+        // return player;
+        return None;
     }
     let contents = fs::read_to_string(path).unwrap();
-    let users: Vec<User> = serde_json::from_str(&contents).unwrap();
-    users
+    let player: Player = serde_json::from_str(&contents).unwrap();
+    Some(player)
 }
