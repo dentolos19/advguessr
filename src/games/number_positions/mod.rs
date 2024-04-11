@@ -1,21 +1,21 @@
-use rand::Rng;
+use std::path::Path;
 
-use crate::utils::terminal::*;
+use crate::*;
 
-pub fn start() {
+pub fn start(player: &mut Player) {
     let menu = Menu::new("Number Positions", vec!["Easy Mode", "Hard Mode", "Back"]);
     match menu.display() {
-        0 => game(4),
-        1 => game(8),
+        0 => game(player, 4),
+        1 => game(player, 8),
         _ => (),
     };
 }
 
-fn game(length: u8) {
+fn game(player: &mut Player, length: u8) {
     let target_number: String = {
         let mut number = String::new();
         for _ in 0..length {
-            number.push_str(&rand::thread_rng().gen_range(0..10).to_string());
+            number.push_str(&generate_number(0, 9).to_string());
         }
         number
     };
@@ -37,6 +37,12 @@ fn game(length: u8) {
             println!("Congratulations! You guessed the number!");
             println!("The hidden number was: {}", target_number);
             println!("Your number of attempts: {}", attempts);
+            if length > 4 {
+                player.add_range_points(70, 100);
+            } else {
+                player.add_range_points(50, 80);
+            }
+            player.save(Path::new(PLAYER_FILE_NAME));
             pause_execution();
             break;
         } else {

@@ -22,7 +22,7 @@ AdvGuessR.
   - [x] Number Positions
   - [ ] Word Matcher (wordle-like game)
   - [ ] Word Guesser (stickman-like game)
-- [ ] Has profile and scoring system!
+- [ ] Has a profile and scoring system!
 - ...more to come!
 
 ## 💖 Credits
